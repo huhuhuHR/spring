@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="instrument" class="chapter2.Instrument" scope="prototype"
+          p:song-ref="song">
+        <property name="price" value="12.00"/>
+        <property name="author">
+            <bean class="chapter2.Author">
+                <property name="name" value="huhuhuHR"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="song" class="chapter2.Song" scope="prototype" p:name="肖邦"/>
+    <bean id="context" class="chapter2.Context">
+        <property name="stringList">
+            <list>
+                <value>a</value>
+                <value>b</value>
+                <value>c</value>
+            </list>
+        </property>
+        <property name="instrumentList">
+            <list>
+                <ref bean="instrument"/>
+                <ref bean="instrument"/>
+                <ref bean="instrument"/>
+            </list>
+        </property>
+        <property name="integerSet">
+            <set>
+                <value>12</value>
+                <value>13</value>
+                <value>14</value>
+            </set>
+        </property>
+        <property name="stringMap">
+            <map>
+                <entry key="a" value="aa"></entry>
+                <entry key="c" value="cc"></entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="aa">asdfaf</prop>
+                <prop key="bb">aafggg</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

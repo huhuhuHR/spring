@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="questA" class="chapter1.di.QuestA"/>
+    <bean id="questB" class="chapter1.di.QuestB"/>
+    <bean id="knightBetter" class="chapter1.di.BetterKnight">
+        <constructor-arg ref="questB"/>
+    </bean>
+    <aop:config>
+        <aop:aspect ref="minstrel">
+            <aop:pointcut id="pointcut" expression="execution(* chapter1.aop.Quest.*(..))"/>
+            <aop:before pointcut-ref="pointcut" method="singleBefore"/>
+            <aop:after pointcut-ref="pointcut" method="singleAfter"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="knightA" class="chapter1.aop.KnightA">
+        <constructor-arg ref="quest"/>
+    </bean>
+    <bean id="quest" class="chapter1.aop.Quest"/>
+    <bean id="minstrel" class="chapter1.aop.Minstrel"/>
+</beans>
