@@ -2,6 +2,9 @@ package chapter3.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * 场景三：给构造器注入
+ */
 public class SenseThree {
     private Person person;
 

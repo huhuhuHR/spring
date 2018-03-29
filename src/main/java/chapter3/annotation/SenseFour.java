@@ -2,6 +2,9 @@ package chapter3.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * 场景四：给类属性自动注入
+ */
 public class SenseFour {
     @Autowired
     private Person person;
@@ -12,8 +15,6 @@ public class SenseFour {
 
     @Override
     public String toString() {
-        return "SenseFour{" +
-                "person=" + person +
-                '}';
+        return "SenseFour{" + "person=" + person + '}';
     }
 }

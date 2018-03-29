@@ -13,6 +13,9 @@ public class TestMain {
         Saxophone saxophone = instrument.getSaxophone();
         assert "sssss".equals(saxophone.getName());
         System.out.println(instrument);
-        System.out.println(context.getBean("saxophone"));
+        Saxophone saxophone1 = context.getBean("saxophone", Saxophone.class);
+        System.out.println(saxophone1);
+        // 验证单例
+        assert saxophone1 == saxophone;
     }
 }

@@ -21,6 +21,10 @@ public class TeatMain {
         Guitar guitar1 = context.getBean("performGuitar", Guitar.class);
         assert guitar1 != null;
         guitar1.play();
+        // xml 和配置的@bean不是一个
         assert guitar != guitar1;
+        Guitar guitar2 = context.getBean("performGuitar", Guitar.class);
+        // 依旧是单例
+        assert guitar1 == guitar2;
     }
 }

@@ -2,6 +2,9 @@ package chapter3.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * 场景二：@Autowired可以给任何需要相关bean的方法注入
+ */
 public class SenseTwo {
     private Person person;
 
